@@ -1,7 +1,7 @@
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { useState } from "react";
-import backgroundImage from '../assets/BackgroundImages/JapaneBackground.png';
+import backgroundImage from '../assets/BackgroundImages/japan2.jpg';
 
 const MainLayout = ({ children }) => {
   const [theme, setTheme] = useState('light');
