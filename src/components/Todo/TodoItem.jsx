@@ -5,7 +5,7 @@ const TodoItem = ({ todo, onDelete }) => {
             <div className="flex items-center pl-3">
                 <input id={todo} type="checkbox" className="w-4 h-4 0 rounded" />
                 {
-                    <label htmlFor={todo} className={'w-full py-3 ml-2  text-sm font-medium text-gray-900 dark:text-gray-300'}>
+                    <label htmlFor={todo} className={'w-full py-3 ml-2  text-sm font-medium'}>
                         {todo}
                     </label>
 
@@ -18,7 +18,7 @@ const TodoItem = ({ todo, onDelete }) => {
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="w-6 h-6"
+                        className="w-6 h-6 text-white"
                     >
                         <path
                             strokeLinecap="round"

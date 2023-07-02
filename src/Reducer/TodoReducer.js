@@ -1,3 +1,17 @@
+import { toast } from "react-toastify";
+
+const ErrorToast = () => {
+  toast.error("This todo has already been added!", {
+    position: toast.POSITION.TOP_RIGHT,
+  });
+};
+
+const SuccessToast = () => {
+  toast.success("This todo added.", {
+    position: toast.POSITION.TOP_RIGHT,
+  });
+};
+
 function reducer(state, action) {
   switch (action.type) {
     case "SET_TODO":
@@ -6,11 +20,26 @@ function reducer(state, action) {
         todo: action.value,
       };
     case "ADD_TODO":
+      const newTodo = action.value;
+      console.log("action:", action.value);
+      if (state.todos.includes(newTodo)) {
+        if (!state.toastShown) {
+          ErrorToast();
+          return {
+            ...state,
+            toastShown: true,
+          };
+        }
+      } else {
+        SuccessToast();
+      }
       return {
         ...state,
         todo: "",
-        todos: [...state.todos, action.value],
+        todos: [...state.todos, newTodo],
+        toastShown: false,
       };
+
     case "SET_DELETE":
       return {
         ...state,

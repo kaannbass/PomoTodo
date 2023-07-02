@@ -1,3 +1,4 @@
+import { memo } from "react";
 
 const Spotfy = () => {
     return (
@@ -9,4 +10,4 @@ const Spotfy = () => {
     );
 }
 
-export default Spotfy;
+export default memo(Spotfy);

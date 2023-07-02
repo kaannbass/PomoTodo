@@ -19,7 +19,7 @@ const Clock = () => {
         };
     }, []);
 
-    return <label htmlFor="">{clock}</label>;
+    return <label htmlFor="" className=" text-white">{clock}</label>;
 };
 
 export default Clock;

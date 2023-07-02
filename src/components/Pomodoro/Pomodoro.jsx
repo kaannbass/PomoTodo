@@ -3,12 +3,8 @@ import ProgressBar from './Progress'
 import Timer from './Timer'
 
 function PomodoroApp() {
-    const [time, setTime] = useState({
-        pomodoroTime: 25 * 60,
-        breakTime: 5 * 60
-    });
+    const [time, setTime] = useState({ pomodoroTime: 25 * 60 });
     const [isRunning, setIsRunning] = useState(false);
-    const [isBreak, setIsBreak] = useState(false);
     const [completedPomodoros, setCompletedPomodoros] = useState(0);
     const [progress, setProgress] = useState(100);
 
@@ -20,12 +16,12 @@ function PomodoroApp() {
         };
 
         const decrementBreakTime = () => {
-            setIsBreak(true);
+
             setTime((prevTime) => ({ ...prevTime, breakTime: prevTime.breakTime - 1 }));
         };
 
         const resetPomodoro = () => {
-            setIsBreak(false);
+
             setCompletedPomodoros((prevCount) => prevCount + 1);
             setTime({
                 pomodoroTime: 25 * 60,
@@ -79,7 +75,7 @@ function PomodoroApp() {
 
     const handleReset = () => {
         setIsRunning(false);
-        setIsBreak(false);
+
         setCompletedPomodoros(0);
         setTime({
             pomodoroTime: 25 * 60,
@@ -91,7 +87,7 @@ function PomodoroApp() {
     return (
         <div className="container mx-auto text-center">
             {!isRunning ? '' : <ProgressBar progress={progress} />}
-            <Timer time={time} isBreak={isBreak} />
+            <Timer time={time} />
             <div className="flex justify-center mb-4">
                 {!isRunning ? (
                     <button className="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-7 py-5 text-center mr-2 mb-2" onClick={handleStart}>
