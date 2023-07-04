@@ -21,13 +21,13 @@ function reducer(state, action) {
       };
     case "ADD_TODO":
       const newTodo = action.value;
-      console.log("action:", action.value);
       if (state.todos.includes(newTodo)) {
         if (!state.toastShown) {
           ErrorToast();
           return {
             ...state,
             toastShown: true,
+            todo: "",
           };
         }
       } else {

@@ -1,4 +1,4 @@
-function Timer({ time, isBreak }) {
+function Timer({ time }) {
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
@@ -8,7 +8,7 @@ function Timer({ time, isBreak }) {
   return (
     <div className="h-40 w-40 flex items-center justify-center relative m-auto">
       <span className="text-5xl font-bold">
-        {isBreak ? formatTime(time.breakTime) : formatTime(time.pomodoroTime)}
+        {formatTime(time.pomodoroTime)}
       </span>
     </div>
   );
